@@ -4,3 +4,6 @@ metadata:
   name: test
 data:
   foo: "{{ $.Values.foo }}"
+  {{- if ($.Values.global.pr | default dict).branch }}
+  branch: "{{ $.Values.global.pr.branch }}"
+  {{- end }}
