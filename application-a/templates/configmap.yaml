@@ -4,4 +4,4 @@ metadata:
   name: test
   namespace: team-backend-test
 data:
-  foo: "bar"
+  foo: "{{ .foo }}"
