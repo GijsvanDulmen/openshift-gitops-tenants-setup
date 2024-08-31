@@ -1,0 +1,18 @@
+
+# global params
+# appRevision: ""
+# targetRevision: ""
+# gitopsNamespace: ""
+# gitRepo: ""
+# disableAutoSync: "no"
+# overrideTenants: "no"
+
+clusterComponents:
+- name: namespace-configuration-operator
+  syncWave: "0"
+- name: user-config
+  syncWave: "1"
+
+# enable this for gitops cluster updates!
+# - name: cluster-version
+#   disableFinalizers: "yes" # needs this otherwise clusterversion would be deleted
