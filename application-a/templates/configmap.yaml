@@ -2,9 +2,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: test
+  {{- if (($.Values.global | default dict).pr | default dict).branch }}
+  name: "test-{{ $.Values.global.pr.number }}"
+  {{- end }}
 data:
   foo: "{{ $.Values.foo }}"
-  {{- if ($.Values.global.pr | default dict).branch }}
+  {{- if (($.Values.global | default dict).pr | default dict).branch }}
   branch: "{{ $.Values.global.pr.branch }}"
   number: "{{ $.Values.global.pr.number }}"
   branchSlug: "{{ $.Values.global.pr.branchSlug }}"
