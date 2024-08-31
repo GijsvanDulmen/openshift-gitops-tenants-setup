@@ -6,4 +6,6 @@ data:
   foo: "{{ $.Values.foo }}"
   {{- if ($.Values.global.pr | default dict).branch }}
   branch: "{{ $.Values.global.pr.branch }}"
+  number: "{{ $.Values.global.pr.number }}"
+  branchSlug: "{{ $.Values.global.pr.branchSlug }}"
   {{- end }}
