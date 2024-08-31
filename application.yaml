@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: main-application
+  namespace: tenant-gitops
+spec:
+  project: tenant-team-backend
+  source:
+    repoURL: https://github.com/GijsvanDulmen/openshift-gitops-tenants-setup
+    targetRevision: HEAD
+    path: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: team-backend-test
