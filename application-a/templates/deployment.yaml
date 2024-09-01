@@ -1,20 +1,22 @@
 ---
+{{- $name := "application-a" -}}
+{{- if (($.Values.global | default dict).pr | default dict).branch }}
+{{- $name = print "application-a" $.Values.global.pr.number }}
+{{- end }}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: application-a
-  {{- if (($.Values.global | default dict).pr | default dict).branch }}
-  name: "application-a-{{ $.Values.global.pr.number }}"
-  {{- end }}
+  name: "{{ $name }}"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: application-a
+      app: "{{ $name }}"
   template:
     metadata:
       labels:
-        app: application-a
+        app: "{{ $name }}"
     spec:
       containers:
       - name: alpine
