@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application-a
+  {{- if (($.Values.global | default dict).pr | default dict).branch }}
+  name: "application-a-{{ $.Values.global.pr.number }}"
+  {{- end }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: application-a
+  template:
+    metadata:
+      labels:
+        app: application-a
+    spec:
+      containers:
+      - name: alpine
+        image: alpine:latest
+        command: [ "sleep" ]
+        args: [ "infinity" ]
