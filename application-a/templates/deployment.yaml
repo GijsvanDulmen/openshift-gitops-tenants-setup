@@ -1,9 +1,5 @@
 ---
-{{- $name := "application-a" -}}
-{{- if (($.Values.global | default dict).pr | default dict).branch }}
-{{- $name = print "application-a" $.Values.global.pr.number }}
-{{- end }}
-
+{{- $name := (include "app-name" $) -}}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
