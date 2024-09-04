@@ -22,7 +22,7 @@ spec:
           matchLabels:
             app: "{{ $name }}"
       containers:
-      - name: alpine
-        image: alpine:latest
-        command: [ "sleep" ]
-        args: [ "infinity" ]
+      - name: echoserver
+        image: gijsvandulmen/echoserver:latest
+        # command: [ "sleep" ]
+        # args: [ "infinity" ]
