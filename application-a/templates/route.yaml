@@ -1,0 +1,19 @@
+{{- $name := (include "app-name" $) -}}
+---
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: "{{ $name }}"
+  labels:
+    app: "{{ $name }}"
+    type: custom-domain
+spec:
+  to:
+    kind: Service
+    name: "{{ $name }}"
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Redirect
+  host: echoserver.ingress.vandulmen.net
+  port:
+    targetPort: http
