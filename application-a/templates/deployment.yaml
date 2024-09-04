@@ -14,6 +14,7 @@ spec:
       labels:
         app: "{{ $name }}"
     spec:
+      serviceAccountName: less-safe-sa
       topologySpreadConstraints:
       - maxSkew: 1
         topologyKey: topology.kubernetes.io/zone
