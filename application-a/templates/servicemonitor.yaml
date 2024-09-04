@@ -1,0 +1,15 @@
+{{- $name := (include "app-name" $) -}}
+---
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: "{{ $name }}"
+spec:
+  endpoints:
+    - interval: 5s
+      path: /metrics
+      port: 8080
+      scheme: http
+  selector:
+    matchLabels:
+      app: "{{ $name }}"
