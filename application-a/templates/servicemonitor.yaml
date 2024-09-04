@@ -8,7 +8,7 @@ spec:
   endpoints:
     - interval: 5s
       path: /metrics
-      port: 8080
+      port: http
       scheme: http
   selector:
     matchLabels:
