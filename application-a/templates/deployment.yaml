@@ -25,7 +25,7 @@ spec:
       - name: echoserver
         image: gijsvandulmen/echoserver:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         resources:
           requests:
             memory: "64Mi"
