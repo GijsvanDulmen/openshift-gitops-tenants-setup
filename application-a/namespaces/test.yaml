@@ -3,4 +3,6 @@ foo: "test"
 # needs to be here for application set to work
 appName: application-a
 
-replicas: 2
+replicas: 1
+
+domainName: "echoserver-test.ingress.vandulmen.net"
