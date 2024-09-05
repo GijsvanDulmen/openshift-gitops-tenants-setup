@@ -29,8 +29,7 @@ spec:
         command:
           - /bin/sh
           - -c
-          - sleep
-          - 2d
+          - "sleep infinity"
         ports:
         - containerPort: 8080
         resources:
