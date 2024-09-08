@@ -24,12 +24,12 @@ spec:
             app: "{{ $name }}"
       containers:
       - name: echoserver
-        # image: gijsvandulmen/echoserver:latest
-        image: alpine
-        command:
-          - /bin/sh
-          - -c
-          - "sleep infinity"
+        image: gijsvandulmen/echoserver:latest
+        # image: alpine
+        # command:
+        #   - /bin/sh
+        #   - -c
+        #   - "sleep infinity"
         ports:
         - containerPort: 8080
         resources:
