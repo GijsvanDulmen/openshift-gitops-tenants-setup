@@ -14,11 +14,11 @@ spec:
     kind: Service
     name: "{{ $name }}"
   tls:
+    termination: edge
     {{- if eq $.Values.enableCert "true" }}
     externalCertificate:
       name: subdomain-certs
     {{- else }}
-    termination: edge
     insecureEdgeTerminationPolicy: Redirect
     {{- end }}
   host: "{{ $.Values.domainName }}"
