@@ -14,8 +14,12 @@ spec:
     kind: Service
     name: "{{ $name }}"
   tls:
+    {{- if eq $.Values.enableCert "true" }}
+    externalCertificate: subdomain-certs
+    {{- else }}
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
+    {{- end }}
   host: "{{ $.Values.domainName }}"
   port:
     targetPort: 8080
