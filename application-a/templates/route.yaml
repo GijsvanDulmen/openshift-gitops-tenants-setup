@@ -18,4 +18,4 @@ spec:
     insecureEdgeTerminationPolicy: Redirect
   host: "{{ $.Values.domainName }}"
   port:
-    targetPort: http
+    targetPort: 8080
