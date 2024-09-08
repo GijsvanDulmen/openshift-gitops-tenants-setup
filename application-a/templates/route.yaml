@@ -7,6 +7,8 @@ metadata:
   labels:
     app: "{{ $name }}"
     type: custom-domain
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: "{{ $.Values.domainName }}"
 spec:
   to:
     kind: Service
