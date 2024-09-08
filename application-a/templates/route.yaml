@@ -14,6 +14,6 @@ spec:
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
-  host: echoserver.ingress.vandulmen.net
+  host: "{{ $.Values.domainName }}"
   port:
     targetPort: http

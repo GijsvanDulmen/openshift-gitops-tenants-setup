@@ -5,4 +5,4 @@ appName: application-a
 
 replicas: 1
 
-domainName: "echoserver-test.ingress.vandulmen.net"
+domainName: "echoserver-test.cloud.ticq.org"
