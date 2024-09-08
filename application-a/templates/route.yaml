@@ -15,7 +15,8 @@ spec:
     name: "{{ $name }}"
   tls:
     {{- if eq $.Values.enableCert "true" }}
-    externalCertificate: subdomain-certs
+    externalCertificate:
+      name: subdomain-certs
     {{- else }}
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
