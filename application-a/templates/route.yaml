@@ -1,26 +1,26 @@
-{{- $name := (include "app-name" $) -}}
----
-kind: Route
-apiVersion: route.openshift.io/v1
-metadata:
-  name: "{{ $name }}"
-  labels:
-    app: "{{ $name }}"
-    type: custom-domain
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: "{{ $.Values.domainName }}"
-spec:
-  to:
-    kind: Service
-    name: "{{ $name }}"
-  tls:
-    termination: edge
-    {{- if eq $.Values.enableCert "true" }}
-    externalCertificate:
-      name: subdomain-certs
-    {{- else }}
-    insecureEdgeTerminationPolicy: Redirect
-    {{- end }}
-  host: "{{ $.Values.domainName }}"
-  port:
-    targetPort: 8080
+# {{- $name := (include "app-name" $) -}}
+# ---
+# kind: Route
+# apiVersion: route.openshift.io/v1
+# metadata:
+#   name: "{{ $name }}"
+#   labels:
+#     app: "{{ $name }}"
+#     type: custom-domain
+#   annotations:
+#     external-dns.alpha.kubernetes.io/hostname: "{{ $.Values.domainName }}"
+# spec:
+#   to:
+#     kind: Service
+#     name: "{{ $name }}"
+#   tls:
+#     termination: edge
+#     {{- if eq $.Values.enableCert "true" }}
+#     externalCertificate:
+#       name: subdomain-certs
+#     {{- else }}
+#     insecureEdgeTerminationPolicy: Redirect
+#     {{- end }}
+#   host: "{{ $.Values.domainName }}"
+#   port:
+#     targetPort: 8080
