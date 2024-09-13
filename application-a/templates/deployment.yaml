@@ -11,6 +11,11 @@ spec:
       app: "{{ $name }}"
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/proxyCPU: "200m"
+        sidecar.istio.io/proxyCPULimit: "300m"
+        sidecar.istio.io/proxyMemory: "30Mi"
+        sidecar.istio.io/proxyMemoryLimit: "100Mi"
       labels:
         app: "{{ $name }}"
     spec:
