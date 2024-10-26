@@ -29,7 +29,7 @@ spec:
             app: "{{ $name }}"
       containers:
       - name: echoserver
-        image: gijsvandulmen/echoserver:latest
+        image: "{{ $.Values.image.registry }}/{{ $.Values.image.repository }}:{{ $.Values.image.tag }}@{{ $.Values.image.digest }}"
         # image: alpine
         # command:
         #   - /bin/sh
