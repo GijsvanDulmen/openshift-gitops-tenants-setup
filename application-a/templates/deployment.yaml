@@ -27,6 +27,10 @@ spec:
         labelSelector:
           matchLabels:
             app: "{{ $name }}"
+      volumes:
+      - name: localvolume
+        persistentVolumeClaim:
+          claimName: application-a-data
       containers:
       - name: echoserver
         image: "{{ $.Values.image.registry }}/{{ $.Values.image.repository }}:{{ $.Values.image.tag }}@{{ $.Values.image.digest }}"
@@ -40,6 +44,9 @@ spec:
             value: "8080"
         ports:
         - containerPort: 8080
+        volumeMounts:
+        - mountPath: /data
+          name: localvolume
         resources:
           requests:
             memory: "64Mi"
