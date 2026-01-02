@@ -1,0 +1,5 @@
+image:
+  registry: "docker.io"
+  repository: gijsvandulmen/echoserver
+  tag: latest
+  digest: sha256:a780bde45b769e75d7b46b9731d267f61412e719157d0e0876e79a4eefb37cf8
