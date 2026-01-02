@@ -1,0 +1,8 @@
+foo: "accept"
+
+# needs to be here for application set to work
+appName: application-a
+
+domainName: "echoserver.backend.prod.cloud.ticq.org"
+
+enableCert: "true"
